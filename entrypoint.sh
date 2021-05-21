@@ -26,10 +26,7 @@ echo "cat new Chart.yml"
 cat $chartYaml
 
 #------------------- HELM 3 INSTALL -------------------
-ls linux-amd64
-cd linux-amd64
-mv helm /usr/local/bin/helm3
-cd ..
+
 helm3 version
 
 #------------------- HELM PACKAGE  --------------------
