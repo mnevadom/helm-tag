@@ -2,6 +2,9 @@
 set -e
 
 tagNr=$1
+repo=$2
+user=$3
+pass=$4
 
 ls
 
@@ -25,7 +28,7 @@ echo "deploying helm version $tagNr to path $PATH_OUT"
 helm package dgp-app/ --version $tagNr --destination $PATH_OUT
 
 FILE_CHART=$PATH_OUT/dgp-app-$tagNr.tgz
-echo "Uploading file $FILE_CHART to repo $REPO_URL "
+echo "Uploading file $FILE_CHART to repo $repo "
 
 
-curl -u admin:DoG00d $REPO_URL --upload-file $FILE_CHART -v
+curl -u $user:$pass $repo --upload-file $FILE_CHART -v

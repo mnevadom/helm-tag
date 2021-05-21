@@ -4,11 +4,23 @@ inputs:
   tag: 
     description: "tag nr"
     required: true
+  repo: 
+    description: "repo"
+    required: true
+  user: 
+    description: "user repo"
+    required: true
+  pass: 
+    description: "pass user repo"
+    required: true
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
     - ${{ inputs.tag }}
+    - ${{ inputs.repo }}
+    - ${{ inputs.user }}
+    - ${{ inputs.pass }}
 branding:
   color: 'green'
   icon: 'at-sign'
