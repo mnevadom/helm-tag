@@ -8,6 +8,8 @@ RUN wget https://get.helm.sh/helm-v3.2.1-linux-amd64.tar.gz
 
 RUN tar zxf helm-v3.2.1-linux-amd64.tar.gz
 
+RUN mv linux-amd64/helm /usr/local/bin/helm3
+
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
