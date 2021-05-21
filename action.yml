@@ -1,0 +1,14 @@
+name: "HELM tag"
+description: "HELM tag"
+inputs:
+  tag: 
+    description: "tag nr"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.tag }}
+branding:
+  color: 'green'
+  icon: 'at-sign'
