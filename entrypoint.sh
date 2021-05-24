@@ -10,11 +10,14 @@ ls
 
 #------------------- CAT VERSION / CHART --------------------
 
-echo "version values: "
-cat values-files/version-values.yaml
-
 chartYaml=dgp-app/Chart.yaml
+versionValues=values-files/version-values.yaml
+valuesFile=dgp-app/values.yaml
+
+echo "chart: "
 cat $chartYaml
+echo "version values: "
+cat $versionValues
 
 #------------------- CHART REPLACE --------------------
 
@@ -23,6 +26,14 @@ yq w -i $chartYaml 'version' $tagNr
 yq w -i $chartYaml 'appVersion' $tagNr
 
 echo "cat new Chart.yml"
+cat $chartYaml
+
+#------------------- VALUES WITH VERSION REPLACE --------------------
+
+echo " ---- VERSIONS REPLACE ----"
+cat $versionValues >> $valuesFile
+
+echo "cat new values.yml"
 cat $chartYaml
 
 #------------------- HELM 3 INSTALL -------------------
