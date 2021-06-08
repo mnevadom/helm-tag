@@ -34,7 +34,7 @@ echo " ---- VERSIONS REPLACE ----"
 cat $versionValues >> $valuesFile
 
 echo "cat new values.yml"
-cat $chartYaml
+cat $valuesFile
 
 #------------------- HELM 3 INSTALL -------------------
 
